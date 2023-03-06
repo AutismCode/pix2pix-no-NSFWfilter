@@ -11,7 +11,7 @@ import requests
 # Load your model to GPU as a global variable here using the variable name "model"
 def init():
     global model
-    model = StableDiffusionInstructPix2PixPipeline.from_pretrained("timbrooks/instruct-pix2pix", torch_dtype=torch.float16).to("cuda")
+    model = StableDiffusionInstructPix2PixPipeline.from_pretrained("timbrooks/instruct-pix2pix", safety_checker=None, torch_dtype=torch.float16).to("cuda")
 
 def download_image(url):
     image = PIL.Image.open(requests.get(url, stream=True).raw)
@@ -60,3 +60,4 @@ def inference(model_inputs:dict) -> dict:
 
     # Return the results as a dictionary
     return {'image_base64': image_base64}
+    # remove mods
