@@ -60,4 +60,4 @@ def inference(model_inputs:dict) -> dict:
 
     # Return the results as a dictionary
     return {'image_base64': image_base64}
-    # remove mods
+    # remove mods23
